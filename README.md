@@ -2,6 +2,27 @@
 
 Building AcoNews was an incredible adventure that pushed my skills and creativity. Using Firebase as my hosting platform for its real-time capabilities and ease of use. The development process involved designing a clean interface and integrating Firebase for user authentication and content management. I faced several challenges, like optimizing load times and ensuring mobile responsiveness, but each obstacle was a learning experience that helped me grow as a developer. Launching Aconews was a proud moment, knowing I created a platform that delivers timely news in a user-friendly way. This journey has been a fulfilling blend of technical growth and creativity!
 
+Tech Stack for AcoNews
+Frontend:
+
+Framework: React.js (for building a dynamic user interface)
+State Management: Redux
+Backend:
+
+Hosting: Firebase Hosting
+
+APIs:
+News API: (to fetch news articles from various sources)
+
+Tools:
+
+Version Control: Git and GitHub
+Development Environment: Visual Studio Code
+
+Deployment:
+CI/CD: GitHub Actions or Firebase CLI (for continuous integration and deployment)
+This stack provides a solid foundation for building a scalable, responsive, and user-friendly news web app. Feel free to customize any part based on your preferences!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
