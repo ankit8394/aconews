@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Building AcoNews was an incredible adventure that pushed my skills and creativity. Using Firebase as my hosting platform for its real-time capabilities and ease of use. The development process involved designing a clean interface and integrating Firebase for user authentication and content management. I faced several challenges, like optimizing load times and ensuring mobile responsiveness, but each obstacle was a learning experience that helped me grow as a developer. Launching Aconews was a proud moment, knowing I created a platform that delivers timely news in a user-friendly way. This journey has been a fulfilling blend of technical growth and creativity!
+Building Aconews was an incredible adventure that pushed my skills and creativity. Using Firebase as my hosting platform for its real-time capabilities and ease of use. The development process involved designing a clean interface and integrating Firebase for user authentication and content management. I faced several challenges, like optimizing load times and ensuring mobile responsiveness, but each obstacle was a learning experience that helped me grow as a developer. Launching Aconews was a proud moment, knowing I created a platform that delivers timely news in a user-friendly way. This journey has been a fulfilling blend of technical growth and creativity!
 
 Tech Stack for AcoNews
 Frontend:
