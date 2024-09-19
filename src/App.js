@@ -14,52 +14,42 @@ const App = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
+      if (!query && !category) return;
       setLoading(true);
       setError(null);
+
       try {
-        const response = await axios.get(
-          `https://gnews.io/api/v4/search?q=${query}&lang=${language}&topic=${category}&apikey=87365cfcf13f3716357a8dfdcf4907e8`
+        const { data } = await axios.get(
+          `https://gnews.io/api/v4/search?q=${query}&lang=${language}&topic=${category}&apikey=YOUR_API_KEY`
         );
-        if (response.data.articles.length === 0) {
+
+        if (data.articles.length === 0) {
           setError('No news articles found. Try a different search term or filter.');
         } else {
-          setNews(response.data.articles);
+          setNews(data.articles);
         }
-      } catch (error) {
+      } catch {
         setError('Failed to fetch news. Check your API key or try again later.');
       } finally {
         setLoading(false);
       }
     };
 
-    if (query || category) {
-      fetchNews();
-    }
+    fetchNews();
   }, [query, category, language]);
 
   const handleSearch = () => {
-    if (searchTerm.trim() === '') {
+    if (searchTerm.trim()) {
+      setQuery(searchTerm);
+      setLoading(true);
+    } else {
       setError('Please enter a search term.');
-      return;
     }
-    setQuery(searchTerm);
-    setLoading(true);
-  };
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
   };
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>News App</h1>
-      </header>
-
+      <header className="app-header"><h1>News App</h1></header>
       <div className="search-container">
         <input
           type="text"
@@ -71,41 +61,34 @@ const App = () => {
       </div>
 
       <div className="filter-container">
-        <select value={category} onChange={handleCategoryChange}>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="">All Categories</option>
-          <option value="technology">Technology</option>
-          <option value="sports">Sports</option>
-          <option value="business">Business</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="health">Health</option>
+          {['technology', 'sports', 'business', 'entertainment', 'health'].map(cat => (
+            <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+          ))}
         </select>
-
-        <select value={language} onChange={handleLanguageChange}>
-          <option value="en">English</option>
-          <option value="hi">Hindi</option>
-          <option value="es">Spanish</option>
-          <option value="fr">French</option>
-          <option value="de">German</option>
-        </select>
+        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+  {[
+    { code: 'en', name: 'English' },
+    { code: 'hi', name: 'Hindi' },
+    { code: 'es', name: 'Spanish' },
+    { code: 'fr', name: 'French' },
+    { code: 'de', name: 'German' }
+  ].map(lang => (
+    <option key={lang.code} value={lang.code}>{lang.name}</option>
+  ))}
+</select>
       </div>
 
       {loading && <h2>Loading...</h2>}
       {error && <h2>{error}</h2>}
-
       <div className="news-container">
-        {news.map((article, index) => (
-          <NewsCard key={index} article={article} />
-        ))}
+        {news.map((article, index) => <NewsCard key={index} article={article} />)}
       </div>
 
-      {/* Footer */}
-      <footer className="app-footer">
-        <p>Designed and Developed By Ankit</p>
-      </footer>
+      <footer className="app-footer"><p>Designed and Developed By Ankit</p></footer>
     </div>
   );
 };
 
 export default App;
-
-
