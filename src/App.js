@@ -20,7 +20,7 @@ const App = () => {
 
       try {
         const { data } = await axios.get(
-          `https://gnews.io/api/v4/search?q=${query}&lang=${language}&topic=${category}&apikey=YOUR_API_KEY`
+          `https://gnews.io/api/v4/search?q=${query}&lang=${language}&topic=${category}&apikey=87365cfcf13f3716357a8dfdcf4907e8`
         );
 
         if (data.articles.length === 0) {
