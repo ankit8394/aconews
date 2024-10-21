@@ -11,7 +11,7 @@ body {
 
 .app-header {
   background-color: #282c34;
-  padding: 20px;
+  padding:10px 20px;
   color: white;
 }
 
@@ -39,14 +39,14 @@ h3 {
 .search-container input {
   padding: 10px;
   font-size: 16px;
-  width: 300px;
+  max-width: 300px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-right: 10px;
 }
 
 .search-container button {
   padding: 10px 20px;
+  margin: 5px;
   font-size: 16px;
   background-color: #007bff;
   color: white;
