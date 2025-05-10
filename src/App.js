@@ -24,12 +24,12 @@ const App = () => {
         );
 
         if (data.articles.length === 0) {
-          setError('No news articles found. Try a different search term or filter.');
+          setError('No news articles found. Try a different search or filter.');
         } else {
           setNews(data.articles);
         }
       } catch {
-        setError('Failed to fetch news. Check your API key or try again later.');
+        setError('Failed to fetch news.');
       } finally {
         setLoading(false);
       }
@@ -43,7 +43,7 @@ const App = () => {
       setQuery(searchTerm);
       setLoading(true);
     } else {
-      setError('Please enter a search term.');
+      setError('Please enter a search.');
     }
   };
 
