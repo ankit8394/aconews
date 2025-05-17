@@ -29,7 +29,7 @@ const App = () => {
           setNews(data.articles);
         }
       } catch {
-        setError('Failed to fetch news.');
+        setError('Failed to fetch news. Check your API key or try again later.');
       } finally {
         setLoading(false);
       }
